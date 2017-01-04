@@ -1,0 +1,36 @@
+ul.file-list{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: auto;
+}
+
+li.file-item{
+    list-style: none;
+    width: 100%;
+    height: 40px;
+    position: relative;
+    transition: all ease 400ms;
+    & + li{
+        border-top: dashed 1px #aaa;
+    }
+    .file-name{
+        line-height: 40px;
+        padding: 0 20px;
+    }
+    &:hover{
+        background: #cadaca;
+    }
+}
+.buttons{
+    position: absolute;
+    text-align: right;
+    top: 0;
+    right: 0;
+    width: auto;
+}
+
+button{
+    display: inline-block;
+
+}

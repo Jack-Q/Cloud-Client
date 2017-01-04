@@ -1,1 +1,10 @@
-<div>I am the child component</div>
+<ul class="file-list" [class.loading]="loading" [class.list]="displayMode">
+    <li class="file-item" *ngFor="let file of files" (click)="onSelect(file)" [class.selected]="file===selectedFile">
+        <span class="file-name">{{file.name}}</span>
+        <div class="buttons">
+
+        <button class="download" (click)="downloadFile(file);$event.stopPropagation()">download</button>
+        <button class="delete" (click)="deleteFile(file);$event.stopPropagation()">delete</button>
+        </div>
+    </li>
+</ul>

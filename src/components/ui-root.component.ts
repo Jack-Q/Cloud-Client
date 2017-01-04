@@ -5,11 +5,7 @@ import {Component} from '@angular/core';
 @Component({
   moduleId: module.id,
   selector: 'ui-root',
-  // templateUrl: 'ui-root.component.html',
-  template: `
-  <div>UI Root Component</div>
-  <ui-file-list></ui-file-list>
-  `,
+  templateUrl: 'ui-root.component.html',
   styleUrls: ['ui-root.component.css']
 })
 export class UiRootComponent {
