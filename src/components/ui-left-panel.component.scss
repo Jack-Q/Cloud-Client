@@ -41,6 +41,15 @@ footer {
     }
 }
 
+@keyframes rotation{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
 .config {
     border: solid #cacaca 1px;
     height: 50px;
@@ -48,8 +57,23 @@ footer {
     margin: 20px auto;
     border-radius: 25px;
     transition: all ease 400ms;
+    i{
+        display: block;
+        height: 30px;
+        width: 30px;
+        font-size: 30px;
+        margin: 10px;
+        text-align: center;
+        color: #cacaca;
+        transition: all ease 400ms;
+        animation: rotation infinite linear;
+    }
     &:hover{
         border: solid 1px #fff;
         background: rgba(220,220,220,0.1);
+        i{
+            color: #fff;
+            animation-duration: 2s;
+        }
     }
 }

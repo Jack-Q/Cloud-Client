@@ -2,9 +2,14 @@
     <li class="file-item" *ngFor="let file of files" (click)="onSelect(file)" [class.selected]="file===selectedFile">
         <span class="file-name">{{file.name}}</span>
         <div class="buttons">
-
-        <button class="download" (click)="downloadFile(file);$event.stopPropagation()">download</button>
-        <button class="delete" (click)="deleteFile(file);$event.stopPropagation()">delete</button>
+            <button md-button class="download" (click)="downloadFile(file);$event.stopPropagation()">
+                <md-icon class="material-icons">file_download</md-icon>
+                download
+            </button>
+            <button md-button class="delete" (click)="deleteFile(file);$event.stopPropagation()">
+                <md-icon class="material-icons">delete</md-icon>
+                delete
+            </button>
         </div>
     </li>
 </ul>
