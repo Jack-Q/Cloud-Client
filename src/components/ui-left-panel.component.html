@@ -1,11 +1,11 @@
 <div class="left-panel">
     <header>Cloud Disk</header>
     <div class="status">
-        <span>Username</span>
+        <span>{{username}}</span>
         <span>ACTIVE</span>
     </div>
     <footer>
-        <div class="config">
+        <div (click)="showConfig()" class="config">
             <i class="material-icons">settings</i>
         </div>
     </footer>

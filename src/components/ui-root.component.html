@@ -1,4 +1,4 @@
-<div class="ui-root">
+<div class="ui-root" [class.cover]="showOverlay">
   <div class="left-panel">
     <ui-left-panel></ui-left-panel>
   </div>
@@ -8,4 +8,6 @@
   <div class="right-list">
     <ui-file-list></ui-file-list>
   </div>
+</div>
+<div class="overlay" [class.on]="showOverlay">
 </div>

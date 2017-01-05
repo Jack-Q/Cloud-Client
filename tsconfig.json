@@ -10,12 +10,13 @@
     "noImplicitAny": false,
     "outDir": "dist",
     "types": [
-      "hammerjs"
+      "node",
+      "core-js",
+      "hammerjs",
+      "electron"
     ]
   },
   "exclude": [
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts"
+    "node_modules"
   ]
 }

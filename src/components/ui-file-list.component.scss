@@ -1,36 +1,120 @@
-ul.file-list{
+ul.file-list {
     padding: 0;
     margin: 0;
     list-style: none;
     width: auto;
+    line-height: 10px;
 }
 
-li.file-item{
-    list-style: none;
-    width: 100%;
-    height: 40px;
-    position: relative;
+li {
     transition: all ease 400ms;
-    & + li{
-        border-top: dashed 1px #aaa;
-    }
-    .file-name{
+    list-style: none;
+    position: relative;
+}
+
+li.file-item {
+    width: 260px;
+    height: 260px;
+    display: inline-block;
+    border-right: dashed 1px #aaa;
+    border-bottom: dashed 1px #aaa;
+    .file-name {
+        position: absolute;
+        bottom: 40px;
+        left: 0;
+        width: 100%;
+        transition: all ease 400ms;
         line-height: 40px;
-        padding: 0 20px;
+        padding: 0 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
-    &:hover{
+    &:hover {
         background: #cadaca;
     }
+    &.selected {
+        box-shadow: 0 0 10px 3px rgba(20, 20, 20, 0.3);
+        .file-name {
+            color: #207c8b;
+        }
+    }
 }
-.buttons{
+
+.file-icon {
+    width: 40px;
+    height: 40px;
+    font: normal normal normal 14px/1 FontAwesome;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: auto;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 10px;
+    &.Doc::before {
+        content: "\f1c2"; // fa-file-word-o
+    }
+    &.Pdf::before {
+        content: "\f1c1"; // fa-file-pdf-o
+    }
+    &.Xls::before {
+        content: "\f1c3"; // fa-file-excel-o
+    }
+    &.Ppt::before {
+        content: "\f1c4"; // fa-file-powerpoint-o
+    }
+    &.Image::before {
+        content: "\f1c5"; //fa-file-image-o
+    }
+    &.Music::before {
+        content: "\f1c7"; // fa-file-audio-o
+    }
+    &.Video::before {
+       content: "\f1c8"; // fa-file-movie-o
+    }
+    &.code::before {
+        content: "\f1c9"; // fa-file-code-o
+    }
+    &.Zip::before {
+        content: "\f1c6"; // fa-file-zip-o
+    }
+    &.Txt::before {
+        content: "\f0f6"; // fa-file-text-o
+    }
+}
+
+.buttons {
     position: absolute;
     text-align: right;
-    top: 0;
+    bottom: 0;
     right: 0;
-    width: auto;
+    width: 100%;
+    text-align: center;
 }
 
-button{
+button {
     display: inline-block;
+}
 
+ul.list li.file-item {
+    width: 100%;
+    height: 40px;
+    display: block;
+    &+li {
+        border-top: dashed 1px #aaa;
+    }
+    .file-name {
+        width: 60%;
+        position: initial;
+        bottom: 0;
+        transition: all ease 400ms;
+        line-height: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .buttons {
+        top: 0;
+        width: auto;
+        text-align: right;
+    }
 }

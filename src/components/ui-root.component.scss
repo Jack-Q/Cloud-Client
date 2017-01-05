@@ -5,7 +5,13 @@ div.ui-root{
     margin: 0;
     position: relative;
 }
+div.ui-root.cover{
+    filter: blur(8px);
 
+}
+div.overlay{
+    background: rgba(120,120,120,0.5);
+}
 div.left-panel{
     position: absolute;
     top: 0;
@@ -36,4 +42,5 @@ div.right-list{
     padding-top: 50px;
     padding-left: 350px; 
     overflow: auto;
+    background-color: #DFDBE5;
 }

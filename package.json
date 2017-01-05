@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@types/core-js": "^0.9.35",
+    "@types/electron": "^1.4.31",
     "@types/hammerjs": "^2.0.34",
     "@types/node": "^6.0.56",
     "autoprefixer": "^6.6.1",
