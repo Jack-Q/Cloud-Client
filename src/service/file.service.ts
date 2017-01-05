@@ -43,7 +43,7 @@ export class FileService {
     }
 
     downloadFile(file: UiFile): Promise<boolean>{
-        return this.http.get(`${API_BASE}/download/${encodeURIComponent(file.uploadId.toString())}/${encodeURIComponent(file.path)}`).toPromise().then(resp => resp.json().success === true);
+        return this.http.get(`${API_BASE}/download/${encodeURIComponent(file.path)}/${encodeURIComponent(file.uploadId.toString())}`).toPromise().then(resp => resp.json().success === true);
     }
 
     updateFile():Promise<boolean> {
