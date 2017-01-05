@@ -1,9 +1,12 @@
 {
   "name": "cloud-disk-ui",
+  "productName": "Cloud Disk",
+  "description": "Simple desktop application to manage cloud disk",
+  "license": "MIT",
   "version": "0.1.0",
   "scripts": {
-    "watch": "./node_modules/grunt/bin/grunt",
-    "start": "electron ."
+    "watch": "node ./node_modules/grunt/bin/grunt",
+    "start": "./node_modules/.bin/electron ."
   },
   "author": {
     "name": "Jack Q",
@@ -37,6 +40,7 @@
     "bootstrap": "^3.3.7",
     "browser-sync": "^2.18.5",
     "concurrently": "^3.1.0",
+    "electron": "^1.4.13",
     "grunt": "^1.0.1",
     "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-clean": "^1.0.0",

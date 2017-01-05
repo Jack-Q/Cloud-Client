@@ -1,1 +1,0 @@
-"/home/jackq/course/Introduction-to-Cloud-Systems/final/ui/src/components/ui-toolbar.component.ts" "/home/jackq/course/Introduction-to-Cloud-Systems/final/ui/src/.baseDir.ts" --sourcemap --emitDecoratorMetadata --experimentalDecorators --moduleResolution node --target ES5 --module commonjs --outDir dist
