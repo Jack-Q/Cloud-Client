@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {UiLoginStatus, LoginService} from '../service/service'
 import {remote} from 'electron'
 @Component({
@@ -13,6 +13,10 @@ export class UiLoginComponent implements OnInit {
     username: string = "";
     password: string = "";
 
+    @Output("authFinish")
+    authFinish = new EventEmitter();
+        
+
     constructor(private loginServie: LoginService) {
         this.loginStatus = loginServie.currentStatus;
     }
@@ -26,6 +30,7 @@ export class UiLoginComponent implements OnInit {
             this.loginStatus.password = this.password;
             this.loginServie.login(this.loginStatus, result => {
                 this.processing = false;
+                this.authFinish.emit();
             })   
         }
     }
@@ -37,6 +42,7 @@ export class UiLoginComponent implements OnInit {
             this.loginStatus.password = this.password;
             this.loginServie.register(this.loginStatus, result => {
                 this.processing = false;
+                this.authFinish.emit();
             })
         }
     }

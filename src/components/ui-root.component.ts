@@ -32,4 +32,8 @@ export class UiRootComponent implements OnInit, AfterContentInit, AfterViewInit 
   openLoginBox() {
     this.showOverlay = true;
   }
+
+  closeLoginBox() {
+    this.showOverlay = false;
+  }
 }
