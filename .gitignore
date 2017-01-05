@@ -8,3 +8,4 @@ src/.baseDir.ts
 .tscache/
 **/**/.baseDir.ts
 tscommand-*.tmp*
+*.jar

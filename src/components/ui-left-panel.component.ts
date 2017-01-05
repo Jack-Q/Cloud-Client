@@ -1,6 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Http } from '@angular/http'
 import {LoginService} from '../service/service'
+import {API_PORT} from '../config'
 
 @Component({
   moduleId: module.id,
@@ -26,7 +27,7 @@ export class UiLeftPanelComponent implements AfterViewInit{
   }
 
   activeServer() {
-    this.http.get(`http://localhost:12345/active`).subscribe(() => {
+    this.http.get(`http://localhost:${API_PORT}/active`).subscribe(() => {
       
     });
   }

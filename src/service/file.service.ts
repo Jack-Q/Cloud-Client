@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import {Subject} from 'rxjs/Subject'
 import { Http } from '@angular/http'
 import { UiFile } from '../model/model'
+import {API_PORT} from '../config'
 import 'rxjs/add/operator/toPromise';
 
-const API_BASE = "http://localhost:12345";
+const API_BASE = `http://localhost:${API_PORT}`;
 
 @Injectable()
 export class FileService {

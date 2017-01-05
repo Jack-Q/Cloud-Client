@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
+import { API_PORT } from '../config'
 
 export interface UiLoginStatus {
     type: "login" | "register";
@@ -36,7 +37,7 @@ export class LoginService {
     }
 
     login(status: UiLoginStatus, callback: (result: boolean) => void) {
-        this.http.get(`http://localhost:12345/login/${encodeURIComponent(status.username)}/${encodeURIComponent(status.password)}`).subscribe(resp => {
+        this.http.get(`http://localhost:${API_PORT}/login/${encodeURIComponent(status.username)}/${encodeURIComponent(status.password)}`).subscribe(resp => {
             let json = resp.json();
             if (json.success) {
                 console.log(json.response);
@@ -51,7 +52,7 @@ export class LoginService {
     }
 
     register(status: UiLoginStatus, callback: (result: boolean) => void) {
-        this.http.get(`http://localhost:12345/register/${encodeURIComponent(status.username)}/${encodeURIComponent(status.password)}`).subscribe(resp => {
+        this.http.get(`http://localhost:${API_PORT}/register/${encodeURIComponent(status.username)}/${encodeURIComponent(status.password)}`).subscribe(resp => {
             let json = resp.json();
             if (json.success) {
                 console.log(json.response);
