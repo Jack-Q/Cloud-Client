@@ -94,7 +94,7 @@ module.exports = function (grunt) {
       },
       html: {
         files: ['src/**/*.html'],
-        tasks: ['copy:html', 'bsReload:all']
+        tasks: ['copy:distHtml', 'bsReload:all']
       },
     },
 

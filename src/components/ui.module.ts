@@ -17,7 +17,7 @@ import { FileService, LoginService } from '../service/service';
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule, MaterialModule.forRoot()],
   declarations: [UiRootComponent, UiLoginComponent, UiFileListComponent, UiLeftPanelComponent, UiToolbarComponent],
-  bootstrap: [UiRootComponent, UiLoginComponent],
+  bootstrap: [UiRootComponent],
   providers: [FileService, LoginService]
 })
 export class UiModule { }

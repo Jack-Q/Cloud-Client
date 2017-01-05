@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 
-export interface UiLoginStatus{
+export interface UiLoginStatus {
     type: "login" | "register";
     success: boolean;
     username: string;
@@ -15,7 +15,7 @@ export class LoginService {
     currentStatus: UiLoginStatus;
     constructor(private http: Http) {
         this.status = new Subject<UiLoginStatus>();
-        this.status.subscribe(s=>this.currentStatus = s);
+        this.status.subscribe(s => this.currentStatus = s);
         try {
             let status = JSON.parse(localStorage.getItem("ui-login-status")) as UiLoginStatus;
             if (!status || !status.username) throw 1;
@@ -31,11 +31,11 @@ export class LoginService {
         }
     }
 
-    isLogin():boolean {
+    isLogin(): boolean {
         return this.currentStatus.success;
     }
 
-    login(status: UiLoginStatus, callback: (boolean)=>void) {
+    login(status: UiLoginStatus, callback: (result: boolean) => void) {
         this.http.get(`http://localhost:12345/login/${encodeURIComponent(status.username)}/${encodeURIComponent(status.password)}`).subscribe(resp => {
             let json = resp.json();
             if (json.success) {
@@ -50,7 +50,7 @@ export class LoginService {
         });
     }
 
-    register(status: UiLoginStatus, callback: (boolean)=>void) {
+    register(status: UiLoginStatus, callback: (result: boolean) => void) {
         this.http.get(`http://localhost:12345/register/${encodeURIComponent(status.username)}/${encodeURIComponent(status.password)}`).subscribe(resp => {
             let json = resp.json();
             if (json.success) {

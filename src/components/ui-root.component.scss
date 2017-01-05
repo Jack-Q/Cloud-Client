@@ -10,7 +10,12 @@ div.ui-root.cover{
 
 }
 div.overlay{
-    background: rgba(120,120,120,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
 }
 div.left-panel{
     position: absolute;

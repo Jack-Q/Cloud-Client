@@ -13,10 +13,11 @@ import { LoginService } from '../service/service'
 export class UiRootComponent implements OnInit, AfterContentInit, AfterViewInit {
   showOverlay: boolean = true;
   constructor(
-    private loginService: LoginService,
-    private dialog: MdDialog
+    private loginService: LoginService
   ) {
-
+    if (!this.loginService.isLogin()) {
+      setTimeout(() => this.openLoginBox(), 100);
+    }
   }
   ngOnInit() {
   }
@@ -25,20 +26,10 @@ export class UiRootComponent implements OnInit, AfterContentInit, AfterViewInit 
 
 
   ngAfterViewInit() {
-    if (!this.loginService.isLogin()) {
-      setTimeout(() => this.openLoginBox(), 100);
-    }
 
   }
 
   openLoginBox() {
     this.showOverlay = true;
-    let dialogRef = this.dialog.open(UiLoginComponent, {
-      disableClose: true,
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(this.loginService.isLogin());
-      this.showOverlay = false;
-    });
   }
 }
