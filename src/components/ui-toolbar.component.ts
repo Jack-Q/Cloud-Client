@@ -16,7 +16,7 @@ export class UiToolbarComponent implements OnInit {
     }
 
     upload(): void{
-        alert("upload");
+        // alert("upload");
         remote.dialog.showOpenDialog(remote.getCurrentWindow(), {
             title: "Select file to upload",
         }, filePath => {
@@ -32,6 +32,11 @@ export class UiToolbarComponent implements OnInit {
         alert("refresh");
         this.fileService.refreshFileList();
     }
+
+    update(): void{
+        alert("update");
+        this.fileService.updateFile();
+    }   
 
     ngOnInit() {
         

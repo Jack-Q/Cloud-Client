@@ -46,6 +46,10 @@ export class FileService {
         return this.http.get(`${API_BASE}/download/${encodeURIComponent(file.uploadId.toString())}/${encodeURIComponent(file.path)}`).toPromise().then(resp => resp.json().success === true);
     }
 
+    updateFile():Promise<boolean> {
+        return this.http.get(`${API_BASE}/update`).toPromise().then(resp=>resp.json().success === true);
+    }
+
     refreshFileList() {
         this.getFileList();
     }
