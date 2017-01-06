@@ -29,12 +29,11 @@ export class UiToolbarComponent implements OnInit {
     }
 
     refresh(): void{
-        alert("refresh");
         this.fileService.refreshFileList();
     }
 
     update(): void{
-        alert("update");
+        alert("update file");
         this.fileService.updateFile();
     }   
 

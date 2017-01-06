@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Http } from '@angular/http'
-import {LoginService} from '../service/service'
+import {LoginService, FileService} from '../service/service'
 import {API_PORT} from '../config'
 
 @Component({
@@ -11,12 +11,16 @@ import {API_PORT} from '../config'
 })
 export class UiLeftPanelComponent implements AfterViewInit{
   username: String;
+  isActive: boolean;
 
-  constructor(private loginService: LoginService, private http: Http) {
+  constructor(private loginService: LoginService, private http: Http, private fileService: FileService ) {
     this.loginService.status.subscribe(s => {
       // update login status
       this.username = s.username;
     })
+    this.fileService.activeStatus.subscribe(b => {
+      this.isActive = b;
+    });
   }
 
   ngAfterViewInit() {
@@ -27,9 +31,7 @@ export class UiLeftPanelComponent implements AfterViewInit{
   }
 
   activeServer() {
-    this.http.get(`http://localhost:${API_PORT}/active`).subscribe(() => {
-      
-    });
+    this.fileService.active();
   }
 
 }

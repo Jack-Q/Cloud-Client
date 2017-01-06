@@ -41,7 +41,9 @@ export class UiFileListComponent implements OnInit {
   }
   
   deleteFile(file: UiFile) {
-    this.fileService.deleteFile(file);
+    if (confirm("Sure to delete file?")) {
+      this.fileService.deleteFile(file); 
+    }
     // this.files = this.files.filter(h => h !== file);
     // if (this.selectedFile === file) {
     //   this.selectedFile = null;

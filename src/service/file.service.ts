@@ -10,9 +10,12 @@ const API_BASE = `http://localhost:${API_PORT}`;
 @Injectable()
 export class FileService {
     fileList: Subject<UiFile[]>;
+    activeStatus: Subject<boolean>;
 
     constructor(private http: Http) {
         this.fileList = new Subject<UiFile[]>();
+        this.activeStatus = new Subject<boolean>();
+        this.activeStatus.next(false);
      }
 
     getFileList(): Promise<UiFile[]> {
@@ -31,6 +34,13 @@ export class FileService {
                 }
             }
         )
+    }
+
+    active(): Promise<boolean> {
+        return this.http.get(`${API_BASE}/active`).toPromise().then<boolean>(resp => {
+            this.activeStatus.next(true);
+            return resp.json().success === true;
+        });
     }
 
     deleteFile(file: UiFile): Promise<boolean> {

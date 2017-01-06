@@ -38,7 +38,12 @@ footer {
         & + span {
             border-top: dotted 1px #aaa;
         }
+        &.on{
+            text-shadow: 0 0 20px #fb1;
+            font-weight: 800;
+        }
     }
+
 }
 
 @keyframes rotation{

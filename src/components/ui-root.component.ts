@@ -37,5 +37,6 @@ export class UiRootComponent implements OnInit, AfterContentInit, AfterViewInit 
   closeLoginBox() {
     this.showOverlay = false;
     this.fileService.refreshFileList();
+    this.fileService.active();
   }
 }
