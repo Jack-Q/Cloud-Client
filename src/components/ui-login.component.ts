@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {UiLoginStatus, LoginService} from '../service/service'
-import {remote} from 'electron'
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { UiLoginStatus, LoginService } from '../service/service'
+import { remote } from 'electron'
 @Component({
     moduleId: module.id,
     selector: 'ui-login',
@@ -15,7 +15,7 @@ export class UiLoginComponent implements OnInit {
 
     @Output("authFinish")
     authFinish = new EventEmitter();
-        
+
 
     constructor(private loginServie: LoginService) {
         this.loginStatus = loginServie.currentStatus;
@@ -31,12 +31,12 @@ export class UiLoginComponent implements OnInit {
             this.loginServie.login(this.loginStatus, result => {
                 if (result) {
                     this.processing = false;
-                    this.authFinish.emit();   
+                    this.authFinish.emit();
                 } else {
                     alert("Login failed");
                     this.processing = false;
                 }
-            })   
+            })
         }
     }
 
@@ -48,8 +48,8 @@ export class UiLoginComponent implements OnInit {
             this.loginServie.register(this.loginStatus, result => {
                 if (result) {
                     this.processing = false;
-                    this.authFinish.emit();   
-                }else {
+                    this.authFinish.emit();
+                } else {
                     alert("Register failed");
                     this.processing = false;
                 }

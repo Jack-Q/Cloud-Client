@@ -64,3 +64,8 @@
     padding: 10px;
     line-height: 49px;
 }
+
+
+button:disabled {
+    background: #aaa;
+}
