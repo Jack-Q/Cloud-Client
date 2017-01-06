@@ -38,7 +38,7 @@ export class LoginService {
 
     login(status: UiLoginStatus, callback: (result: boolean) => void) {
         this.http.get(`http://localhost:${API_PORT}/login/${encodeURIComponent(status.username)}/${encodeURIComponent(status.password)}`).subscribe(resp => {
-            let json = resp.json();
+            let json = resp.json() || {};
             if (json.success) {
                 console.log(json.response);
                 status.success = true;
@@ -53,7 +53,7 @@ export class LoginService {
 
     register(status: UiLoginStatus, callback: (result: boolean) => void) {
         this.http.get(`http://localhost:${API_PORT}/register/${encodeURIComponent(status.username)}/${encodeURIComponent(status.password)}`).subscribe(resp => {
-            let json = resp.json();
+            let json = resp.json() || {};
             if (json.success) {
                 console.log(json.response);
                 status.success = true;

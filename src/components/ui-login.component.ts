@@ -29,8 +29,13 @@ export class UiLoginComponent implements OnInit {
             this.loginStatus.username = this.username;
             this.loginStatus.password = this.password;
             this.loginServie.login(this.loginStatus, result => {
-                this.processing = false;
-                this.authFinish.emit();
+                if (result) {
+                    this.processing = false;
+                    this.authFinish.emit();   
+                } else {
+                    alert("Login failed");
+                    this.processing = false;
+                }
             })   
         }
     }
@@ -41,8 +46,13 @@ export class UiLoginComponent implements OnInit {
             this.loginStatus.username = this.username;
             this.loginStatus.password = this.password;
             this.loginServie.register(this.loginStatus, result => {
-                this.processing = false;
-                this.authFinish.emit();
+                if (result) {
+                    this.processing = false;
+                    this.authFinish.emit();   
+                }else {
+                    alert("Register failed");
+                    this.processing = false;
+                }
             })
         }
     }

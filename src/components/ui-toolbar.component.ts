@@ -20,6 +20,10 @@ export class UiToolbarComponent implements OnInit {
         remote.dialog.showOpenDialog(remote.getCurrentWindow(), {
             title: "Select file to upload",
         }, filePath => {
+            // User canceled
+            if (!filePath)
+                return;
+            
             let file = new UiFile(filePath[0])
             file.path = filePath[0];
             this.fileService.uploadFile(file).then(file => {
