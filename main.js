@@ -1,6 +1,7 @@
 var app = require('electron').app;
 var BrowserWindow = require('electron').BrowserWindow;
 var spawn = require('child_process').spawn;
+var exec = require('child_process').exec;
 var net = require('net');
 var fs = require('fs');
 var API_PORT = 0;
@@ -42,7 +43,7 @@ var startServer = () => {
 var shutDownServer = () => {
     server.stdin.pause();
     if (isWin) {
-        server.kill();
+        exec('taskkill /pid ' + server.pid + ' /T /F');
     } else {
         // Kill all of the child process of the shell script
         process.kill(-server.pid, 'SIGKILL');   
