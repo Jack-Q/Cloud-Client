@@ -29,15 +29,24 @@ function getPort(cb) {
 var startServer = () => {
     var portrange = 12345;
     if (isWin) {
-        server = spawn('cmd.exe', ['/c', 'server\\server.bat']);
+        server = spawn('cmd.exe', ['/c', 'server\\server.bat'], {
+            detached: true
+        });
     } else {
-        server = spawn('sh', ['-c', 'server/server.sh']);
+        server = spawn('sh', ['-c', 'server/server.sh'], {
+            detached: true
+        });
     }
 }
 
 var shutDownServer = () => {
     server.stdin.pause();
-    server.kill();
+    if (isWin) {
+        server.kill();
+    } else {
+        // Kill all of the child process of the shell script
+        process.kill(-server.pid, 'SIGKILL');   
+    }
 }
 
 app.on('ready', function () {
