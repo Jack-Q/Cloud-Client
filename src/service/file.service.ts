@@ -35,12 +35,12 @@ export class FileService {
 
     deleteFile(file: UiFile): Promise<boolean> {
         return this.http.get(`${API_BASE}/delete/${encodeURIComponent(file.uploadId.toString())}`).toPromise().then<boolean>(
-            resp => resp.json().success === true)
+            resp => resp.json().success === true);
     }
 
     uploadFile(file: UiFile): Promise<boolean> {
         return this.http.get(`${API_BASE}/upload/${encodeURIComponent(file.path)}`).toPromise().then(
-            resp => resp.json().success === true)
+            resp => resp.json().success === true);
     }
 
     downloadFile(file: UiFile): Promise<boolean>{

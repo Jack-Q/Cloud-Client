@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterContentInit, AfterViewInit } from '@angular/core';
 import { MdDialog } from '@angular/material'
 import { UiLoginComponent } from './ui-login.component'
-import { LoginService } from '../service/service'
+import { LoginService, FileService } from '../service/service'
 // any child components must be declared in the directives property.
 // templateUrl should be specified from the root of the project.
 @Component({
@@ -13,7 +13,8 @@ import { LoginService } from '../service/service'
 export class UiRootComponent implements OnInit, AfterContentInit, AfterViewInit {
   showOverlay: boolean = true;
   constructor(
-    private loginService: LoginService
+    private loginService: LoginService,
+    private fileService :FileService
   ) {
     if (!this.loginService.isLogin()) {
       setTimeout(() => this.openLoginBox(), 100);
@@ -35,5 +36,6 @@ export class UiRootComponent implements OnInit, AfterContentInit, AfterViewInit 
 
   closeLoginBox() {
     this.showOverlay = false;
+    this.fileService.refreshFileList();
   }
 }
